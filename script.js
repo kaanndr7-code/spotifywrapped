@@ -1,54 +1,48 @@
-const backgrounds = [
-  "radial-gradient(circle at top, #1db95433, #000)",
-  "radial-gradient(circle at top, #8e44ad33, #000)",
-  "radial-gradient(circle at top, #f39c1233, #000)",
-  "radial-gradient(circle at top, #3498db33, #000)",
-  "radial-gradient(circle at top, #e8439333, #000)"
-];
+const sections = Array.from(document.querySelectorAll(".section"));
+const music = document.getElementById("music");
+const startBtn = document.getElementById("startBtn");
 
-let bgIndex = 0;
+let currentIndex = 0;
 
-function go(id) {
-  document.querySelectorAll('.section')
-    .forEach(s => s.classList.remove('active'));
-
-  const section = document.getElementById(id);
-  section.classList.add('active');
-
-  document.body.style.background = backgrounds[bgIndex % backgrounds.length];
-  bgIndex++;
-
-  animateText(section);
+function showSection(index) {
+  sections.forEach(sec => sec.classList.remove("active"));
+  sections[index].classList.add("active");
+  triggerReveal(sections[index]);
 }
 
-function animateText(section) {
-  const elements = section.querySelectorAll('.reveal');
-  elements.forEach(el => {
-    const text = el.innerHTML;
-    el.innerHTML = "";
-    [...text].forEach((char, i) => {
-      const span = document.createElement("span");
-      span.innerHTML = char === " " ? "&nbsp;" : char;
-      span.style.animationDelay = `${i * 0.03}s`;
-      el.appendChild(span);
-    });
+function triggerReveal(section) {
+  section.querySelectorAll(".reveal").forEach(el => {
+    el.classList.remove("show");
+    void el.offsetWidth; // reflow hack
+    el.classList.add("show");
   });
 }
 
-function startWrapped() {
-  const music = document.getElementById("bgMusic");
-  const play = document.getElementById("playBtn");
-
-  play.classList.add("heart");
+startBtn.addEventListener("click", () => {
   music.volume = 0.35;
   music.play();
-
-  setTimeout(() => {
-    go("traits");
-  }, 600);
-}
-
-// Sayfa ilk açıldığında hero yazılarını göster
-document.addEventListener("DOMContentLoaded", () => {
-  animateText(document.getElementById("hero"));
+  currentIndex = 1;
+  showSection(currentIndex);
 });
+
+document.querySelectorAll("[data-next]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    currentIndex++;
+    showSection(currentIndex);
+
+    if (sections[currentIndex].dataset.section === "end") {
+      fadeOutMusic();
+    }
+  });
+});
+
+function fadeOutMusic() {
+  const interval = setInterval(() => {
+    if (music.volume > 0.05) {
+      music.volume -= 0.05;
+    } else {
+      music.pause();
+      clearInterval(interval);
+    }
+  }, 150);
+}

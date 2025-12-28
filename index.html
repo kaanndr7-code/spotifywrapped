@@ -1,52 +1,85 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Your 2025 Wrapped</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Cerencholic 2025 Wrapped</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <main id="app">
+  <!-- MUSIC -->
+  <audio id="bgMusic" src="music.mp3" loop></audio>
 
-    <section class="section active" data-section="hero">
-      <button id="startBtn" class="play">
-        ▶
-      </button>
+  <!-- APP -->
+  <div id="app">
 
-      <h1 class="reveal">Your 2025 Wrapped</h1>
-      <p class="reveal">
+    <!-- START CARD -->
+    <section class="card active">
+      <button class="play-btn" onclick="start()">▶</button>
+      <h1>Your 2025 Wrapped</h1>
+      <p>
         Bu sene seni dinledim.<br>
         Algoritma değil,<br>
         kalbim hesapladı.
       </p>
-      <span class="tap reveal">dokun</span>
     </section>
 
-    <section class="section" data-section="traits">
-      <h2 class="reveal">En Çok Dinlenen Özelliklerin</h2>
+    <!-- TRAITS -->
+    <section class="card">
+      <h2>En Çok Dinlenen Özelliklerin</h2>
       <ul>
-        <li class="reveal">%92 Gülüşün</li>
-        <li class="reveal">%88 Sabır</li>
-        <li class="reveal">%100 Samimiyet</li>
-        <li class="reveal">%∞ Yanımda Olma Hissi</li>
+        <li>%92 Gülüşün</li>
+        <li>%88 Sabır</li>
+        <li>%100 Samimiyet</li>
+        <li>%∞ Yanımda Olma Hissi</li>
       </ul>
-      <button data-next>Devam Et</button>
+      <button onclick="next()">Devam Et</button>
     </section>
 
-    <section class="section" data-section="end">
-      <h1 class="reveal">Wrapped Bitti</h1>
-      <p class="reveal">
+    <!-- MOOD -->
+    <section class="card">
+      <h2>Moduma Göre Sen</h2>
+      <div class="mini-card">Mutluyken → Sen</div>
+      <div class="mini-card">Yorgunken → Yine Sen</div>
+      <div class="mini-card">Kafam Karışıkken → Özellikle Sen</div>
+      <button onclick="next()">Devam Et</button>
+    </section>
+
+    <!-- MOMENTS -->
+    <section class="card">
+      <h2>Bu Yılın Anları</h2>
+      <ul>
+        <li>O gün yağmur vardı ama sen vardın</li>
+        <li>Sessiz ama çok şey anlatan bir akşam</li>
+        <li>Sadece bakarak anlaştığımız an</li>
+      </ul>
+      <button onclick="next()">Devam Et</button>
+    </section>
+
+    <!-- REPEAT -->
+    <section class="card">
+      <h2>On Repeat</h2>
+      <p class="big">
+        Yanındayken<br>
+        her şey<br>
+        olması gerektiği gibi.
+      </p>
+      <button onclick="next()">Devam Et</button>
+    </section>
+
+    <!-- FINAL -->
+    <section class="card">
+      <h1>Wrapped Bitti</h1>
+      <p>
         Ama seni dinlemeye<br>
         devam ediyorum.
       </p>
-      <span class="signature reveal">— Kaan</span>
+      <span class="signature">— Kaan</span>
     </section>
 
-  </main>
+  </div>
 
-  <audio id="music" src="music.mp3" loop></audio>
   <script src="script.js"></script>
 </body>
 </html>

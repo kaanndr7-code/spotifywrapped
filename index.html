@@ -8,82 +8,76 @@
 </head>
 <body>
 
-<div class="app">
+<div id="stage">
 
-  <!-- CARD 1 -->
-  <section class="card active bg-hero">
-    <h1>Your 2025 Wrapped</h1>
-    <p>
-      Bu sene seni dinledim.<br>
-      Algoritma değil,<br>
-      kalbim hesapladı.
-    </p>
-    <button onclick="nextCard()">Başla</button>
-  </section>
-
-  <!-- CARD 2 -->
-  <section class="card bg-stats">
-    <h2>En Çok Dinlenen Özelliklerin</h2>
-
-    <div class="stat-grid">
-      <div class="stat-card">
-        <span class="value">%92</span>
-        <span class="label">Gülüşün</span>
-      </div>
-      <div class="stat-card">
-        <span class="value">%88</span>
-        <span class="label">Sabır</span>
-      </div>
-      <div class="stat-card">
-        <span class="value">%100</span>
-        <span class="label">Samimiyet</span>
-      </div>
-      <div class="stat-card highlight">
-        <span class="value">%∞</span>
-        <span class="label">Yanımda Olma Hissi</span>
-      </div>
+  <section class="slide active">
+    <div class="glass-card">
+      <h1>Your 2025 Wrapped</h1>
+      <p>
+        Bu sene seni dinledim.<br>
+        Algoritma değil,<br>
+        kalbim hesapladı.
+      </p>
+      <button onclick="next()">Başla</button>
     </div>
-
-    <button onclick="nextCard()">Devam Et</button>
   </section>
 
-  <!-- CARD 3 -->
-  <section class="card bg-mood">
-    <h2>Moduma Göre Sen</h2>
-    <p>Mutluyken → <strong>Sen</strong></p>
-    <p>Yorgunken → <strong>Yine Sen</strong></p>
-    <p>Kafam Karışıkken → <strong>Özellikle Sen</strong></p>
-    <button onclick="nextCard()">Devam Et</button>
+  <section class="slide">
+    <div class="glass-card">
+      <h2>En Çok Dinlenen Özelliklerin</h2>
+
+      <div class="stat-deck">
+        <div class="stat-box"><strong>%92</strong><span>Gülüşün</span></div>
+        <div class="stat-box"><strong>%88</strong><span>Sabır</span></div>
+        <div class="stat-box"><strong>%100</strong><span>Samimiyet</span></div>
+        <div class="stat-box wide"><strong>%∞</strong><span>Yanımda Olma Hissi</span></div>
+      </div>
+
+      <button onclick="next()">Devam Et</button>
+    </div>
   </section>
 
-  <!-- CARD 4 -->
-  <section class="card bg-moments">
-    <h2>Bu Yılın Anları</h2>
-    <p>O gün yağmur vardı ama sen vardın</p>
-    <p>Sessiz ama çok şey anlatan bir akşam</p>
-    <p>Sadece bakarak anlaştığımız an</p>
-    <button onclick="nextCard()">Devam Et</button>
+  <section class="slide">
+    <div class="glass-card">
+      <h2>Moduma Göre Sen</h2>
+      <p>Mutluyken → <b>Sen</b></p>
+      <p>Yorgunken → <b>Yine Sen</b></p>
+      <p>Kafam Karışıkken → <b>Özellikle Sen</b></p>
+      <button onclick="next()">Devam Et</button>
+    </div>
   </section>
 
-  <!-- CARD 5 -->
-  <section class="card bg-repeat">
-    <h2>On Repeat</h2>
-    <p class="highlight-text">
-      Yanındayken<br>
-      her şey<br>
-      olması gerektiği gibi.
-    </p>
-    <button onclick="nextCard()">Devam Et</button>
+  <section class="slide">
+    <div class="glass-card">
+      <h2>Bu Yılın Anları</h2>
+      <p>O gün yağmur vardı ama sen vardın</p>
+      <p>Sessiz ama çok şey anlatan bir akşam</p>
+      <p>Sadece bakarak anlaştığımız an</p>
+      <button onclick="next()">Devam Et</button>
+    </div>
   </section>
 
-  <!-- CARD 6 -->
-  <section class="card bg-end">
-    <h2>Wrapped Bitti</h2>
-    <p>
-      Ama seni dinlemeye<br>
-      devam ediyorum.
-    </p>
-    <span class="signature">— Kaan</span>
+  <section class="slide">
+    <div class="glass-card">
+      <h2>On Repeat</h2>
+      <p class="big">
+        Yanındayken<br>
+        her şey<br>
+        olması gerektiği gibi.
+      </p>
+      <button onclick="next()">Devam Et</button>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="glass-card">
+      <h2>Wrapped Bitti</h2>
+      <p>
+        Ama seni dinlemeye<br>
+        devam ediyorum.
+      </p>
+      <span class="sign">— Kaan</span>
+    </div>
   </section>
 
 </div>

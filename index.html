@@ -1,96 +1,219 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Your 2025 Wrapped</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Cerencholic – Your 2025 Wrapped</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1db95433, #000);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    .section {
+      display: none;
+      min-height: 100vh;
+      padding: 60px 24px;
+      text-align: center;
+      animation: fade 0.6s ease;
+    }
+
+    .section.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    button {
+      margin: 20px auto 0;
+      padding: 14px 30px;
+      border-radius: 30px;
+      border: none;
+      background: #1db954;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    ul {
+      list-style: none;
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      padding: 16px;
+      border-radius: 16px;
+    }
+
+    .big {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .signature {
+      margin-top: 20px;
+      opacity: 0.6;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- HERO -->
   <section class="section active" id="hero">
     <h1>Your 2025 Wrapped</h1>
-    <p>Bu sene seni dinledim.  
-    Algoritma değil, kalbim hesapladı.</p>
-    <button onclick="showSection('traits')">Başla</button>
+    <p>
+      Bu sene seni dinledim.<br>
+      Bazen sessizken,<br>
+      bazen fark ettirmeden.
+    </p>
+    <button onclick="go('traits')">Başla</button>
   </section>
 
-  <!-- TOP TRAITS -->
+  <!-- TRAITS -->
   <section class="section" id="traits">
     <h2>En Çok Dinlenen Özelliklerin</h2>
-
-    <ul class="stats">
-      <li>%92 Gülüşün</li>
-      <li>%88 Sabır</li>
-      <li>%100 Samimiyet</li>
+    <ul>
+      <li>%93 Tatlılık</li>
+      <li>%88 Fark Ettirmeden Hissettirme</li>
+      <li>%100 Gerçeklik</li>
       <li>%∞ Yanımda Olma Hissi</li>
     </ul>
-
-    <button onclick="showSection('mood')">Devam Et</button>
+    <button onclick="go('analysis')">Devam Et</button>
   </section>
 
-  <!-- MOOD -->
-  <section class="section" id="mood">
-    <h2>Moduma Göre Sen</h2>
+  <!-- ANALYSIS -->
+  <section class="section" id="analysis">
+    <h2>Davranış Analizi</h2>
+    <ul>
+      <li>Dudağının içini yiyorsa → sinirli ya da stresli</li>
+      <li>Kolyeyi çiğniyorsa → dikkat, bir şeyler yolunda değil</li>
+      <li>Bir şeye fazla odaklanınca → çok düşünüyor</li>
+      <li>Uykusu çok ağır → dünyayla bağlantı kopuyor</li>
+    </ul>
+    <button onclick="go('silent')">Devam Et</button>
+  </section>
 
-    <div class="cards">
-      <div class="card">Mutluyken → Sen</div>
-      <div class="card">Yorgunken → Yine Sen</div>
-      <div class="card">Kafam Karışıkken → Özellikle Sen</div>
-    </div>
+  <!-- SILENT -->
+  <section class="section" id="silent">
+    <h2>Sessiz Mod</h2>
+    <p class="big">
+      Sessiz kalıyorsa,<br>
+      bir şey demiyorsa,<br><br>
+      orada bir şey vardır.<br><br>
+      Ve bu,<br>
+      en çok dikkat etmem gereken yer.
+    </p>
+    <button onclick="go('sweet')">Devam Et</button>
+  </section>
 
-    <button onclick="showSection('moments')">Devam Et</button>
+  <!-- SWEET -->
+  <section class="section" id="sweet">
+    <h2>Tatlı Detaylar</h2>
+    <ul>
+      <li>Çok tatlı</li>
+      <li>Sürekli ısırmak istiyorum</li>
+      <li>Topuklu ayakkabısının sesi >>>>></li>
+      <li>Saçının kokusu, gelişi >>>>></li>
+    </ul>
+    <button onclick="go('moments')">Devam Et</button>
   </section>
 
   <!-- MOMENTS -->
   <section class="section" id="moments">
-    <h2>Bu Yılın Anları</h2>
-
-    <ul class="moments">
-      <li>O gün yağmur vardı ama sen vardın</li>
-      <li>Sessiz ama çok şey anlatan bir akşam</li>
-      <li>Sadece bakarak anlaştığımız an</li>
+    <h2>Küçük Ama İkonik Anlar</h2>
+    <ul>
+      <li>Bildiğim bir yalan söylediğinde gülümsüyorsun (çok tatlı)</li>
+      <li>“Ok” yazıyorsan, uğraşamayacağım demektir</li>
+      <li>🤏🤏🤏🤏 — bunu hâlâ çözemedim</li>
     </ul>
-
-    <button onclick="showSection('repeat')">Devam Et</button>
+    <button onclick="go('rules')">Devam Et</button>
   </section>
 
-  <!-- ON REPEAT -->
-  <section class="section" id="repeat">
-    <h2>On Repeat</h2>
-    <p class="big-text">
-      Yanındayken  
-      her şey olması gerektiği gibi.
-    </p>
-
-    <button onclick="showSection('future')">Devam Et</button>
-  </section>
-
-  <!-- FUTURE -->
-  <section class="section" id="future">
-    <h2>Algoritmanın Tahmini</h2>
-
-    <ul class="stats">
-      <li>%78 Daha çok gülme</li>
-      <li>%65 Yeni anılar</li>
-      <li>%100 Yan yana kalma isteği</li>
+  <!-- RULES -->
+  <section class="section" id="rules">
+    <h2>Yeni Kurallar</h2>
+    <ul>
+      <li>Artık telefonuna bakamazmışım</li>
+      <li>Tercihen ters bir şeye bindirme</li>
     </ul>
-
-    <button onclick="showSection('end')">Son</button>
+    <button onclick="go('vision')">Devam Et</button>
   </section>
 
-  <!-- END -->
-  <section class="section" id="end">
-    <h1>Wrapped Bitti</h1>
-    <p>
-      Ama seni dinlemeye  
-      devam ediyorum.
+  <!-- VISION -->
+  <section class="section" id="vision">
+    <h2>Vizyon</h2>
+    <p class="big">
+      Vizyonunu seviyorum.<br><br>
+      Beni geri değil,<br>
+      ileriye çekmen<br>
+      çok hoşuma gidiyor.
     </p>
-
-    <span class="signature">— Kaan</span>
+    <button onclick="go('final')">Son</button>
   </section>
 
-  <script src="script.js"></script>
+  <!-- FINAL -->
+  <section class="section" id="final">
+    <h1>On Repeat</h1>
+    <p class="big">
+      Bugün tadı kaçtıysa,<br>
+      gönlünü almam gerek.<br><br>
+      Çünkü bazı şarkılar<br>
+      hiç skip edilmez.
+    </p>
+    <div class="signature">— Kaan</div>
+  </section>
+
+  <script>
+    function go(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
 </body>
 </html>

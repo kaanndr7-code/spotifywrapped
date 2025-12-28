@@ -1,26 +1,26 @@
 const slides = document.querySelectorAll(".slide");
-let current = 0;
+let index = 0;
 
-/* DYNAMIC GRADIENT GENERATOR */
-function randomGradient() {
-  const hue1 = Math.floor(Math.random() * 360);
-  const hue2 = (hue1 + 60 + Math.random() * 100) % 360;
+/* RANDOM GRADIENT */
+function generateGradient() {
+  const h1 = Math.floor(Math.random() * 360);
+  const h2 = (h1 + 80 + Math.random() * 120) % 360;
 
   return `linear-gradient(135deg,
-    hsl(${hue1}, 70%, 45%),
-    hsl(${hue2}, 70%, 35%)
+    hsl(${h1}, 70%, 45%),
+    hsl(${h2}, 70%, 35%)
   )`;
 }
 
-slides.forEach(slide => {
-  slide.style.background = randomGradient();
-});
+/* INITIAL COLOR */
+slides[0].style.background = generateGradient();
 
 function next() {
-  slides[current].classList.remove("active");
-  current++;
+  slides[index].classList.remove("active");
+  index++;
 
-  if (current < slides.length) {
-    slides[current].classList.add("active");
+  if (index < slides.length) {
+    slides[index].style.background = generateGradient(); // ← HER TIKLAMADA YENİ
+    slides[index].classList.add("active");
   }
 }

@@ -1,48 +1,30 @@
-const sections = Array.from(document.querySelectorAll(".section"));
-const music = document.getElementById("music");
-const startBtn = document.getElementById("startBtn");
+const cards = document.querySelectorAll(".card");
+let index = 0;
+let musicStarted = false;
 
-let currentIndex = 0;
-
-function showSection(index) {
-  sections.forEach(sec => sec.classList.remove("active"));
-  sections[index].classList.add("active");
-  triggerReveal(sections[index]);
+function showCard(i) {
+  cards.forEach(c => c.classList.remove("active"));
+  cards[i].classList.add("active");
 }
 
-function triggerReveal(section) {
-  section.querySelectorAll(".reveal").forEach(el => {
-    el.classList.remove("show");
-    void el.offsetWidth; // reflow hack
-    el.classList.add("show");
-  });
+function next() {
+  if (index < cards.length - 1) {
+    index++;
+    showCard(index);
+  }
 }
 
-startBtn.addEventListener("click", () => {
-  music.volume = 0.35;
-  music.play();
-  currentIndex = 1;
-  showSection(currentIndex);
-});
+function start() {
+  const music = document.getElementById("bgMusic");
 
-document.querySelectorAll("[data-next]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    currentIndex++;
-    showSection(currentIndex);
+  if (!musicStarted) {
+    music.volume = 0.35;
+    music.play();
+    musicStarted = true;
+  }
 
-    if (sections[currentIndex].dataset.section === "end") {
-      fadeOutMusic();
-    }
-  });
-});
-
-function fadeOutMusic() {
-  const interval = setInterval(() => {
-    if (music.volume > 0.05) {
-      music.volume -= 0.05;
-    } else {
-      music.pause();
-      clearInterval(interval);
-    }
-  }, 150);
+  next();
 }
+
+// INIT
+showCard(0);

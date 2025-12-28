@@ -216,12 +216,20 @@
     <div class="signature">— Kaan</div>
   </section>
 
-  <script>
-    function go(id) {
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
+<script>
+  function go(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function startWrapped() {
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.35;
+    music.play();
+    go('traits');
+  }
+</script>
+
 
 </body>
 </html>

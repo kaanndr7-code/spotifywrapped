@@ -1,76 +1,70 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Cerencholic 2025 Wrapped</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>2025 Wrapped</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- MUSIC -->
-  <audio id="bgMusic" src="music.mp3" loop></audio>
+  <div class="app">
 
-  <!-- APP -->
-  <div id="app">
-
-    <!-- START CARD -->
+    <!-- CARD 1 -->
     <section class="card active">
-      <button class="play-btn" onclick="start()">▶</button>
       <h1>Your 2025 Wrapped</h1>
       <p>
         Bu sene seni dinledim.<br>
         Algoritma değil,<br>
         kalbim hesapladı.
       </p>
+      <button onclick="nextCard()">Başla</button>
     </section>
 
-    <!-- TRAITS -->
+    <!-- CARD 2 -->
     <section class="card">
       <h2>En Çok Dinlenen Özelliklerin</h2>
-      <ul>
-        <li>%92 Gülüşün</li>
-        <li>%88 Sabır</li>
-        <li>%100 Samimiyet</li>
-        <li>%∞ Yanımda Olma Hissi</li>
+      <ul class="stats">
+        <li>%92 <span>Gülüşün</span></li>
+        <li>%88 <span>Sabır</span></li>
+        <li>%100 <span>Samimiyet</span></li>
+        <li>%∞ <span>Yanımda Olma Hissi</span></li>
       </ul>
-      <button onclick="next()">Devam Et</button>
+      <button onclick="nextCard()">Devam Et</button>
     </section>
 
-    <!-- MOOD -->
+    <!-- CARD 3 -->
     <section class="card">
       <h2>Moduma Göre Sen</h2>
-      <div class="mini-card">Mutluyken → Sen</div>
-      <div class="mini-card">Yorgunken → Yine Sen</div>
-      <div class="mini-card">Kafam Karışıkken → Özellikle Sen</div>
-      <button onclick="next()">Devam Et</button>
+      <p>Mutluyken → <strong>Sen</strong></p>
+      <p>Yorgunken → <strong>Yine Sen</strong></p>
+      <p>Kafam Karışıkken → <strong>Özellikle Sen</strong></p>
+      <button onclick="nextCard()">Devam Et</button>
     </section>
 
-    <!-- MOMENTS -->
+    <!-- CARD 4 -->
     <section class="card">
       <h2>Bu Yılın Anları</h2>
-      <ul>
-        <li>O gün yağmur vardı ama sen vardın</li>
-        <li>Sessiz ama çok şey anlatan bir akşam</li>
-        <li>Sadece bakarak anlaştığımız an</li>
-      </ul>
-      <button onclick="next()">Devam Et</button>
+      <p>O gün yağmur vardı ama sen vardın</p>
+      <p>Sessiz ama çok şey anlatan bir akşam</p>
+      <p>Sadece bakarak anlaştığımız an</p>
+      <button onclick="nextCard()">Devam Et</button>
     </section>
 
-    <!-- REPEAT -->
+    <!-- CARD 5 -->
     <section class="card">
       <h2>On Repeat</h2>
-      <p class="big">
+      <p class="highlight">
         Yanındayken<br>
         her şey<br>
         olması gerektiği gibi.
       </p>
-      <button onclick="next()">Devam Et</button>
+      <button onclick="nextCard()">Devam Et</button>
     </section>
 
-    <!-- FINAL -->
+    <!-- CARD 6 -->
     <section class="card">
-      <h1>Wrapped Bitti</h1>
+      <h2>Wrapped Bitti</h2>
       <p>
         Ama seni dinlemeye<br>
         devam ediyorum.

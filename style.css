@@ -6,19 +6,13 @@
 
 body {
   height: 100vh;
-  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: hidden;
   color: #fff;
 }
 
-#viewport {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-/* SLIDE */
-.slide {
+/* SCREENS */
+.screen {
   position: absolute;
   inset: 0;
   display: flex;
@@ -27,25 +21,45 @@ body {
 
   opacity: 0;
   transform: scale(0.95);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease;
   pointer-events: none;
 }
 
-.slide.active {
+.screen.active {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
+}
+
+/* INTRO */
+.intro {
+  background: #0e0e0e;
+}
+
+.heart-btn {
+  font-size: 4rem;
+  background: none;
+  border: none;
+  color: #ff4d6d;
+  cursor: pointer;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
 }
 
 /* CARD */
 .card {
   width: 90%;
   max-width: 420px;
-  padding: 34px 26px;
+  padding: 36px 26px;
   border-radius: 26px;
   text-align: center;
 
-  background: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.15);
   backdrop-filter: blur(20px);
   box-shadow:
     0 30px 60px rgba(0,0,0,0.35),
@@ -82,7 +96,7 @@ p {
 }
 
 .stat {
-  background: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.2);
   border-radius: 18px;
   padding: 16px 10px;
 }

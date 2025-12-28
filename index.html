@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your 2025 Wrapped</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="section active" id="hero">
+    <h1>Your 2025 Wrapped</h1>
+    <p>Bu sene seni dinledim.  
+    Algoritma değil, kalbim hesapladı.</p>
+    <button onclick="showSection('traits')">Başla</button>
+  </section>
+
+  <!-- TOP TRAITS -->
+  <section class="section" id="traits">
+    <h2>En Çok Dinlenen Özelliklerin</h2>
+
+    <ul class="stats">
+      <li>%92 Gülüşün</li>
+      <li>%88 Sabır</li>
+      <li>%100 Samimiyet</li>
+      <li>%∞ Yanımda Olma Hissi</li>
+    </ul>
+
+    <button onclick="showSection('mood')">Devam Et</button>
+  </section>
+
+  <!-- MOOD -->
+  <section class="section" id="mood">
+    <h2>Moduma Göre Sen</h2>
+
+    <div class="cards">
+      <div class="card">Mutluyken → Sen</div>
+      <div class="card">Yorgunken → Yine Sen</div>
+      <div class="card">Kafam Karışıkken → Özellikle Sen</div>
+    </div>
+
+    <button onclick="showSection('moments')">Devam Et</button>
+  </section>
+
+  <!-- MOMENTS -->
+  <section class="section" id="moments">
+    <h2>Bu Yılın Anları</h2>
+
+    <ul class="moments">
+      <li>O gün yağmur vardı ama sen vardın</li>
+      <li>Sessiz ama çok şey anlatan bir akşam</li>
+      <li>Sadece bakarak anlaştığımız an</li>
+    </ul>
+
+    <button onclick="showSection('repeat')">Devam Et</button>
+  </section>
+
+  <!-- ON REPEAT -->
+  <section class="section" id="repeat">
+    <h2>On Repeat</h2>
+    <p class="big-text">
+      Yanındayken  
+      her şey olması gerektiği gibi.
+    </p>
+
+    <button onclick="showSection('future')">Devam Et</button>
+  </section>
+
+  <!-- FUTURE -->
+  <section class="section" id="future">
+    <h2>Algoritmanın Tahmini</h2>
+
+    <ul class="stats">
+      <li>%78 Daha çok gülme</li>
+      <li>%65 Yeni anılar</li>
+      <li>%100 Yan yana kalma isteği</li>
+    </ul>
+
+    <button onclick="showSection('end')">Son</button>
+  </section>
+
+  <!-- END -->
+  <section class="section" id="end">
+    <h1>Wrapped Bitti</h1>
+    <p>
+      Ama seni dinlemeye  
+      devam ediyorum.
+    </p>
+
+    <span class="signature">— Kaan</span>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

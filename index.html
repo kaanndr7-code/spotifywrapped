@@ -105,14 +105,22 @@
 
   <!-- HERO -->
   <section class="section active" id="hero">
-    <h1>Your 2025 Wrapped</h1>
-    <p>
-      Bu sene seni dinledim.<br>
-      Bazen sessizken,<br>
-      bazen fark ettirmeden.
-    </p>
-    <button onclick="go('traits')">Başla</button>
-  </section>
+  
+  <div class="play-wrapper" onclick="startWrapped()">
+    <div class="play-btn"></div>
+  </div>
+
+  <h1>Your 2025 Wrapped</h1>
+  <p>
+    Bu sene seni dinledim.<br>
+    Bazen sessizken,<br>
+    bazen fark ettirmeden.
+  </p>
+
+  <span class="tap">dokun</span>
+</section>
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
 
   <!-- TRAITS -->
   <section class="section" id="traits">

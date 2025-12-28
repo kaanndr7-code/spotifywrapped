@@ -47,3 +47,8 @@ function startWrapped() {
     go("traits");
   }, 600);
 }
+
+// Sayfa ilk açıldığında hero yazılarını göster
+document.addEventListener("DOMContentLoaded", () => {
+  animateText(document.getElementById("hero"));
+});

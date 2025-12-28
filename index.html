@@ -17,6 +17,7 @@
       background: radial-gradient(circle at top, #1db95433, #000);
       color: #fff;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     .section {
@@ -50,6 +51,12 @@
       opacity: 0.9;
     }
 
+    ul {
+      list-style: none;
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
     button {
       margin: 20px auto 0;
       padding: 14px 30px;
@@ -66,10 +73,32 @@
       transform: scale(1.05);
     }
 
-    ul {
-      list-style: none;
-      font-size: 1.1rem;
-      line-height: 2;
+    /* PLAY BUTTON */
+    .play-wrapper {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(29,185,84,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 10px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+
+    .play-btn {
+      width: 0;
+      height: 0;
+      border-left: 22px solid #1db954;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      margin-left: 4px;
+    }
+
+    .tap {
+      font-size: 0.8rem;
+      opacity: 0.6;
     }
 
     .cards {
@@ -98,6 +127,12 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(29,185,84,0.5); }
+      70% { box-shadow: 0 0 0 22px rgba(29,185,84,0); }
+      100% { box-shadow: 0 0 0 0 rgba(29,185,84,0); }
+    }
   </style>
 </head>
 
@@ -105,22 +140,18 @@
 
   <!-- HERO -->
   <section class="section active" id="hero">
-  
-  <div class="play-wrapper" onclick="startWrapped()">
-    <div class="play-btn"></div>
-  </div>
+    <div class="play-wrapper" onclick="startWrapped()">
+      <div class="play-btn"></div>
+    </div>
 
-  <h1>Your 2025 Wrapped</h1>
-  <p>
-    Bu sene seni dinledim.<br>
-    Bazen sessizken,<br>
-    bazen fark ettirmeden.
-  </p>
-
-  <span class="tap">dokun</span>
-</section>
-
-<audio id="bgMusic" src="music.mp3" loop></audio>
+    <h1>Your 2025 Wrapped</h1>
+    <p>
+      Bu sene seni dinledim.<br>
+      Bazen sessizken,<br>
+      bazen fark ettirmeden.
+    </p>
+    <span class="tap">dokun</span>
+  </section>
 
   <!-- TRAITS -->
   <section class="section" id="traits">
@@ -138,10 +169,10 @@
   <section class="section" id="analysis">
     <h2>Davranış Analizi</h2>
     <ul>
-      <li>Dudağının içini yiyorsa → sinirli ya da stresli</li>
-      <li>Kolyeyi çiğniyorsa → dikkat, bir şeyler yolunda değil</li>
+      <li>Dudağının içini yiyorsa → stresli</li>
+      <li>Kolyeyi çiğniyorsa → dikkat et</li>
       <li>Bir şeye fazla odaklanınca → çok düşünüyor</li>
-      <li>Uykusu çok ağır → dünyayla bağlantı kopuyor</li>
+      <li>Uykusu çok ağır → dünya kapanıyor</li>
     </ul>
     <button onclick="go('silent')">Devam Et</button>
   </section>
@@ -175,9 +206,9 @@
   <section class="section" id="moments">
     <h2>Küçük Ama İkonik Anlar</h2>
     <ul>
-      <li>Bildiğim bir yalan söylediğinde gülümsüyorsun (çok tatlı)</li>
+      <li>Bildiğim bir yalan söylediğinde gülümsüyorsun</li>
       <li>“Ok” yazıyorsan, uğraşamayacağım demektir</li>
-      <li>🤏🤏🤏🤏 — bunu hâlâ çözemedim</li>
+      <li>🤏🤏🤏🤏 — hâlâ çözemedim</li>
     </ul>
     <button onclick="go('rules')">Devam Et</button>
   </section>
@@ -186,7 +217,7 @@
   <section class="section" id="rules">
     <h2>Yeni Kurallar</h2>
     <ul>
-      <li>Artık telefonuna bakamazmışım</li>
+      <li>Artık telefonuna bakamam</li>
       <li>Tercihen ters bir şeye bindirme</li>
     </ul>
     <button onclick="go('vision')">Devam Et</button>
@@ -216,20 +247,23 @@
     <div class="signature">— Kaan</div>
   </section>
 
-<script>
-  function go(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
+  <!-- MUSIC -->
+  <audio id="bgMusic" src="music.mp3" loop></audio>
 
-  function startWrapped() {
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.35;
-    music.play();
-    go('traits');
-  }
-</script>
+  <script>
+    function go(id) {
+      document.querySelectorAll('.section')
+        .forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
 
+    function startWrapped() {
+      const music = document.getElementById("bgMusic");
+      music.volume = 0.35;
+      music.play();
+      go('traits');
+    }
+  </script>
 
 </body>
 </html>

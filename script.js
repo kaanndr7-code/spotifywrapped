@@ -1,11 +1,11 @@
 const cards = document.querySelectorAll(".card");
-let currentIndex = 0;
+let index = 0;
 
 function nextCard() {
-  cards[currentIndex].classList.remove("active");
-  currentIndex++;
+  cards[index].classList.remove("active");
+  index++;
 
-  if (currentIndex < cards.length) {
-    cards[currentIndex].classList.add("active");
+  if (index < cards.length) {
+    cards[index].classList.add("active");
   }
 }
